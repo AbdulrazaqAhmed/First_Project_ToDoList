@@ -11,14 +11,14 @@ interface TaskDao {
         suspend fun addTask(taskModel : TaskModel)
 
 
-        @Query("SELECT * FROM taskmodel")
-        fun getItem() : LiveData<List<TaskModel>>
+        @Query("SELECT * FROM TaskModel")
+        fun getTask() : LiveData<List<TaskModel>>
 
         @Update
-        suspend fun updateItem(itemModel : TaskModel)
+        suspend fun updateTask(taskModel : TaskModel)
 
 
         @Delete
 
-        suspend fun deleteItem(itemModel: TaskModel)
+        suspend fun deleteTask(taskModel: TaskModel)
 }
