@@ -10,8 +10,10 @@ import java.util.*
 data class TaskModel(
     val title : String,
     val description : String,
-    val time : Time,
-    val date: Date,
+    val time : String,
+    val date: String,
+    val deudate: String,
+    val isDone: Boolean ,
     @PrimaryKey(autoGenerate = true)
     val id :Int = 0
 

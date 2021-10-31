@@ -6,32 +6,36 @@ import androidx.lifecycle.viewModelScope
 import com.example.todolistproject.database.TaskModel
 import com.example.todolistproject.repository.TaskRepository
 import kotlinx.coroutines.launch
-import java.sql.Date
-import java.sql.Time
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TaskViewModel : ViewModel() {
 
     private val taskRepository = TaskRepository.get()
+    var selectedTaskMutableLiveData = MutableLiveData<TaskModel>()
 
     var taskEvent = taskRepository.getTask()
 
-    fun addTask(title: String, description : String, time : Time, date: Date) {
+    fun addTask(title: String, description : String, time : String, deudate: String) {
+
+        val dateFormat = SimpleDateFormat("yyyy/MM/dd")
+        val currentDate = dateFormat.format(Date())
+
         viewModelScope.launch {
-            taskRepository.addTask(TaskModel(title, description, time, date ))
+            taskRepository.addTask(TaskModel(title, description, time,currentDate, deudate,false))
         }
 
     }
-    var selectedItemMutableLiveData = MutableLiveData<TaskModel>()
     fun updateTask(taskModel: TaskModel){
 
         viewModelScope.launch {
-            taskRepository.updateItem(taskModel)
+            taskRepository.updateTask(taskModel)
         }
     }
 
     fun deleteTask(taskModel: TaskModel){
         viewModelScope.launch {
-            taskRepository.deleteItem(taskModel)
+            taskRepository.deleteTask(taskModel)
         }
     }
 

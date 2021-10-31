@@ -14,7 +14,7 @@
         android:orientation="vertical"></LinearLayout>
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/addDetailTitel_edittext"
         android:layout_width="283dp"
         android:layout_height="54dp"
         android:layout_marginStart="101dp"
@@ -23,12 +23,13 @@
         android:ems="10"
         android:hint="Title"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/addDetailDescription_edittext"
         android:layout_width="266dp"
         android:layout_height="211dp"
         android:layout_marginStart="75dp"
@@ -38,12 +39,13 @@
         android:gravity="start"
         android:hint="Description"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/addDetailTitel_edittext" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/addDetailTime_editText"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -53,10 +55,10 @@
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/addDetailDescription_edittext" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/addDetailDeuDate_editText"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -66,10 +68,10 @@
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+        app:layout_constraintTop_toBottomOf="@+id/addDetailTime_editText" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addDetailSave_button"
         android:layout_width="374dp"
         android:layout_height="49dp"
         android:layout_marginTop="56dp"
@@ -79,7 +81,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+        app:layout_constraintTop_toBottomOf="@+id/addDetailDeuDate_editText"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

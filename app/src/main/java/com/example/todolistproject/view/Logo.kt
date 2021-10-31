@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todolistproject.MainActivity
 import com.example.todolistproject.R
 //import com.example.todolistproject.view.databinding.ActivityLogoBinding
 

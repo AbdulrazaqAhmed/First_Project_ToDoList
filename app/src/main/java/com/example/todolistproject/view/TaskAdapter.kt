@@ -3,12 +3,13 @@ package com.example.todolistproject.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.CheckBox
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistproject.R
 import com.example.todolistproject.database.TaskModel
-import java.sql.Date
-import java.sql.Time
 
 class TaskAdapter (val tasks:List<TaskModel>,val viewModel: TaskViewModel):
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
@@ -22,33 +23,53 @@ class TaskAdapter (val tasks:List<TaskModel>,val viewModel: TaskViewModel):
                 false
             )
         )
+
+
+
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
 
-        holder.addTitleeEdittext.text = task.title
-        holder.addDescriptionEdittext = task.description
-        holder.addTimeEdittext        = task.time
-        holder.addDateEdittext        = task.date
+        holder.titletextview.text = task.title
+        holder.isDone.isChecked = task.isDone
+
+
+
+
+        holder.itemView.setOnClickListener { view->
+            viewModel.selectedTaskMutableLiveData.postValue(task)
+            view.findNavController().navigate(R.id.action_taskList_Fragment2_to_taskDetail_Fragment2)
+
+        }
+        holder.deletetextview.setOnClickListener(){
+            viewModel.deleteTask(task)
+        }
+
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return tasks.size
     }
-
-
     class TaskViewHolder(view : View): RecyclerView.ViewHolder(view){
 
-        var addTitleeEdittext : EditText = view.findViewById(R.id.addTitel_edittext)
-        var addDescriptionEdittext : EditText = view.findViewById(R.id.addDescription_edittext)
-        var addTimeEdittext : EditText = view.findViewById(R.id.addTime_editText)
-        var addDateEdittext : EditText = view.findViewById(R.id.addDate_editText)
+        var titletextview : TextView = view.findViewById(R.id.task_textview)
+        var deletetextview : ImageButton = view.findViewById(R.id.delete_ImageButton)
+        val isDone: CheckBox = view.findViewById(R.id.checkBoxTaskLayout)
+
+
+
+
 
 
 
 
     }
-
-
 }
+
+
+
+
+
+
+
