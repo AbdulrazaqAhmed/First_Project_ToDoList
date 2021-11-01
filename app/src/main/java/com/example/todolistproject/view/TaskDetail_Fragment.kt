@@ -1,5 +1,7 @@
 package com.example.todolistproject.view
 
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,21 +33,40 @@ class TaskDetail_Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val titleedittext : EditText = view.findViewById(R.id.addDetailTitel_edittext )
         val descriptionedittext : EditText = view.findViewById(R.id.addDetailDescription_edittext)
-        val  timeedittext: EditText = view.findViewById(R.id.addDetailTime_editText)
-        val  dateedittext: EditText = view.findViewById(R.id.addDetailDeuDate_editText)
+        val popDatePicker : EditText = view.findViewById(R.id.PopDate_DetailPicker)
         val saveButton : Button = view.findViewById(R.id.addDetailSave_button)
 
         taskViewModel.selectedTaskMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
                 titleedittext.setText("${it.title}")
                 descriptionedittext.setText("${it.description}")
-                timeedittext.setText("${it.time}")
-                dateedittext.setText("${it.deudate}")
+                popDatePicker.setText("${it.deudate}")
+
+                popDatePicker.setOnClickListener {
+                    val calendar: Calendar = Calendar.getInstance()
+                    val year: Int = calendar.get(Calendar.YEAR)
+                    val month: Int = calendar.get(Calendar.MONTH)
+                    val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
+
+                    val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                        popDatePicker.setText("" + day + "/" + month + "/" + year)
+                    }, year, month, day)
+                    datePickerDialog.show()
+                }
+
+
+
+
 
                 selectedTask = it
             }
         })
         saveButton.setOnClickListener(){
+
+            selectedTask.title = titleedittext.text.toString()
+            selectedTask.description = descriptionedittext.text.toString()
+            selectedTask.deudate = popDatePicker.text.toString()
+
             taskViewModel.updateTask(selectedTask)
             findNavController().popBackStack()
 

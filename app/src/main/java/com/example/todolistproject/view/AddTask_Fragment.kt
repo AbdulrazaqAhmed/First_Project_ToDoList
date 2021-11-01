@@ -1,5 +1,7 @@
 package com.example.todolistproject.view
 
+import android.app.DatePickerDialog
+import android.icu.util.Calendar
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,8 +12,7 @@ import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.todolistproject.R
-
-
+import java.util.*
 
 
 class AddTask_Fragment : Fragment() {
@@ -29,23 +30,39 @@ class AddTask_Fragment : Fragment() {
 
         val add_Titleedittext : EditText = view.findViewById(R.id.addTitel_edittext)
         val add_Description : EditText = view.findViewById(R.id.addDescription_edittext)
-        val add_Deudateedittext : EditText = view.findViewById(R.id.addDeuDate_editText)
-        val add_Timeedittext : EditText = view.findViewById(R.id.addTime_editText)
+        val popDatePicker : EditText = view.findViewById(R.id.PopDate_Picker)
         val saveButton : Button = view.findViewById(R.id.addSave_button)
-/*
-* calender
-* */
+
+
+
+        popDatePicker.setOnClickListener {
+            val calendar: Calendar = Calendar.getInstance()
+            val year: Int = calendar.get(Calendar.YEAR)
+            val month: Int = calendar.get(Calendar.MONTH)
+            val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                popDatePicker.setText("" + day + "/" + month + "/" + year)
+            }, year, month, day)
+            datePickerDialog.show()
+        }
+
+
+
+
+
+
         saveButton.setOnClickListener{
             val title = add_Titleedittext.text.toString()
             val description = add_Description.text.toString()
-            val deudate = add_Deudateedittext.text.toString()
-            val time   = add_Timeedittext.text.toString()
+            val deudate = popDatePicker.text.toString()
+
 
 
             if (title.isNotEmpty() && description.isNotEmpty()) {
 
 
-                taskViewModel.addTask(title, description, deudate,time)
+                taskViewModel.addTask(title, description,deudate)
 
                 findNavController().popBackStack()
             }
