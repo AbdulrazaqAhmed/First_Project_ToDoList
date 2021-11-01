@@ -38,7 +38,7 @@ class AddTask_Fragment : Fragment() {
         popDatePicker.setOnClickListener {
             val calendar: Calendar = Calendar.getInstance()
             val year: Int = calendar.get(Calendar.YEAR)
-            val month: Int = calendar.get(Calendar.MONTH)
+            val month: Int = calendar.get(Calendar.MONTH)+1
             val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
 
             val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
