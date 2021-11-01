@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -34,6 +35,7 @@ class TaskDetail_Fragment : Fragment() {
         val titleedittext : EditText = view.findViewById(R.id.addDetailTitel_edittext )
         val descriptionedittext : EditText = view.findViewById(R.id.addDetailDescription_edittext)
         val popDatePicker : EditText = view.findViewById(R.id.PopDate_DetailPicker)
+        val currentTimetextView : TextView = view.findViewById(R.id.currentTimetext)
         val saveButton : Button = view.findViewById(R.id.addDetailSave_button)
 
         taskViewModel.selectedTaskMutableLiveData.observe(viewLifecycleOwner, Observer {
@@ -41,12 +43,13 @@ class TaskDetail_Fragment : Fragment() {
                 titleedittext.setText("${it.title}")
                 descriptionedittext.setText("${it.description}")
                 popDatePicker.setText("${it.deudate}")
-
+                currentTimetextView.text = it.creationDate
                 popDatePicker.setOnClickListener {
                     val calendar: Calendar = Calendar.getInstance()
                     val year: Int = calendar.get(Calendar.YEAR)
                     val month: Int = calendar.get(Calendar.MONTH)
                     val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
+
 
                     val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
                         popDatePicker.setText("" + day + "/" + month + "/" + year)
