@@ -11,7 +11,7 @@ data class TaskModel(
     var description: String,
     var deudate: String,
     var creationDate: String,
-    val isDone: Boolean,
+    var isDone: Boolean,
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0
 

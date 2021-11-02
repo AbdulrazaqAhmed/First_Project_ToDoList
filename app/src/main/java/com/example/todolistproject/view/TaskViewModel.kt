@@ -33,6 +33,7 @@ class TaskViewModel : ViewModel() {
         }
     }
 
+
     fun deleteTask(taskModel: TaskModel){
         viewModelScope.launch {
             taskRepository.deleteTask(taskModel)

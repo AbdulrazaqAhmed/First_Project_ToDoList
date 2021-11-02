@@ -42,7 +42,7 @@ class AddTask_Fragment : Fragment() {
             val day: Int = calendar.get(Calendar.DAY_OF_MONTH)
 
             val datePickerDialog = DatePickerDialog(view.context, DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                popDatePicker.setText("" + day + "/" + (month+1) + "/" + year)
+                popDatePicker.setText("" + year  + "/" + (month+1) + "/" + day)
             }, year, month, day)
             datePickerDialog.show()
         }
