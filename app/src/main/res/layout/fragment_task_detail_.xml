@@ -20,10 +20,12 @@
             android:layout_marginStart="57dp"
             android:layout_marginTop="79dp"
             android:layout_marginEnd="101dp"
+            android:background="#EDF6D0"
             android:ems="10"
             android:hint="Title"
             android:inputType="textPersonName"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHint="#BF7575" />
 
         <EditText
             android:id="@+id/addDetailDescription_edittext"
@@ -32,29 +34,35 @@
             android:layout_marginStart="75dp"
             android:layout_marginTop="38dp"
             android:layout_marginEnd="68dp"
+            android:background="#EDF6D0"
             android:ems="10"
             android:gravity="start"
             android:hint="Description"
             android:inputType="textPersonName"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHint="#BF7575" />
 
         <EditText
             android:id="@+id/PopDate_DetailPicker"
             android:layout_width="261dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="77dp"
+            android:layout_marginLeft="67dp"
             android:layout_marginTop="35dp"
+            android:background="#EDF6D0"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:hint="pick date" />
+            android:hint="pick date"
+            android:textColor="@android:color/black"
+            android:textColorHint="#BF7575" />
 
         <TextView
             android:id="@+id/currentTimetext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:background="#A9C38D"
             android:text="TextView" />
 
         <Button
@@ -63,7 +71,7 @@
             android:layout_height="49dp"
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="70dp"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/purple_500"
             android:text="Save" />
 
     </LinearLayout>

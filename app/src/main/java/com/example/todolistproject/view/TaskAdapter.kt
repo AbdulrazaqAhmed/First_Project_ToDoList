@@ -46,6 +46,13 @@ class TaskAdapter (val tasks:List<TaskModel>,val viewModel: TaskViewModel):
             viewModel.deleteTask(task)
         }
 
+
+
+
+
+
+
+
     }
 
     override fun getItemCount(): Int {
