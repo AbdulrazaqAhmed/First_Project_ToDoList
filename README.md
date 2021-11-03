@@ -3,20 +3,28 @@
 
 --------------------------------------------------------------------------------------
 # First_Project_ToDoList
+--------------------------------------------------------------------------------------
+# About ToDoList App:<br>
 
+<br>This app created for Task management in the first place, it made simple understandble and ease of use. <br>
+<br> in this app you are not constrained to specific time to do the task, feel free to chose your own time but do not exceed the due date<br>
+
+
+---------------------------------------------------------------------------------------
 ## List of technology used:
 
 <br> Kotlin. <br>
 <br> Android studio. <br>
 <br> Figma for project phase one "designing" . <br>
 
+--------------------------------------------------------------------------------------
 
 ## User Story.
-
-<br> the user is looking for a task management application to manage daily tasks. 
-<br> 
-<br>user can use this application to track task and deadlines. <br>
-<br> user can see the tasks deadline and can change it from the detail <br>
+<br> frindly and easy task list suetable for all "no complecations!!"
+<br> the user is looking for a task management application to manage daily tasks. <br> 
+<br> the user can add the new task and deleted from the list . <br>
+<br> user can see the tasks deadline and current date can change it from the detail list <br>
+<br> when the user done with the task he can check the box and task will be indicated as done.<br>
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
