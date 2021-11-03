@@ -23,25 +23,30 @@
 <br> frindly and easy task list suetable for all "no complecations!!"
 <br> the user is looking for a task management application to manage daily tasks. <br> 
 <br> the user can add the new task and deleted from the list . <br>
-<br> user can see the tasks deadline and current date can change it from the detail list <br>
+<br> user can see the tasks deadline and current date, as he can change it from the detail list <br>
 <br> when the user done with the task he can check the box and task will be indicated as done.<br>
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
 
 ## Devalopment Process and Problem solving strategy:
-<br>
+
 <br> I faced problem with design for the first phase of the project, chosing good desing always the best for user experiance, <br>
 <br> but overcome this problem by online searching for more resources and designes.
 
 <br> there were several logical problem occured while working and the most diffecal one were the data consistancy,<br>
 
 
+## Unsolved Problems and extra fixes can be added in future :
 
+<br> Notification alarms to notify user to do the task before the due date and use location notification to notify user of task that is close to him <br>
+<br> use online database such as firebase kinvey or amazon mobile <br>
+<br> email sign in and registration <br> 
+ 
 
 
 -------------------------------------------------------------------------------------------------------------
-<br> Screen Shots of the App <br>
+## <br> Screen Shots of the App <br>
 
 ![Splash](https://user-images.githubusercontent.com/91452385/140149183-02553472-f568-4d2f-8353-1268c1169e20.png)
 
