@@ -45,8 +45,6 @@ class TaskList_Fragment : Fragment() {
 
 
 
-
-
         val taskAdapter = TaskAdapter(tasks,taskViewModel)
         taskRecyclerView.adapter = taskAdapter
 
@@ -58,6 +56,13 @@ class TaskList_Fragment : Fragment() {
                 taskAdapter.notifyDataSetChanged()
             }
         })
+        sortAcending.setOnClickListener{
+
+            tasks.sortBy { it.title }
+            Log.d("break massege","$tasks")
+            taskAdapter.notifyDataSetChanged()
+
+        }
 
 
 
