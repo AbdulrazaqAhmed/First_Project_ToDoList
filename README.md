@@ -39,9 +39,9 @@
 
 ## Unsolved Problems and extra fixes can be added in future :
 
-<br> Notification alarms to notify user to do the task before the due date and use location notification to notify user of task that is close to him <br>
-<br> use online database such as firebase kinvey or amazon mobile <br>
-<br> email sign in and registration <br> 
+<br> Notification alarms to notify user to do the task before the due date and use location notification to notify user of task that is close to him. <br>
+<br> use online database such as firebase kinvey or amazon mobile. <br>
+<br> email sign in and registration. <br> 
  
 
 
