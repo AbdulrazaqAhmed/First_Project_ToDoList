@@ -16,13 +16,13 @@ class TaskViewModel : ViewModel() {
 
     var taskEvent = taskRepository.getTask()
 
-    fun addTask(title: String, description : String, deudate: String) {
+    fun addTask(title: String, description : String, deudate: String, isDone: Boolean, indicator: String) {
 
         val dateFormat = SimpleDateFormat("yyyy/MM/dd")
         val currentDate = dateFormat.format(Date())
 
         viewModelScope.launch {
-            taskRepository.addTask(TaskModel(title, description,deudate, currentDate,false))
+            taskRepository.addTask(TaskModel(title, description,deudate, currentDate,isDone, indicator))
         }
 
     }

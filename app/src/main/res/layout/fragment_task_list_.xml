@@ -23,12 +23,20 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="My Tasks"
             android:textAlignment="center"
             android:textColor="#4CAF50" />
+
+        <Button
+            android:id="@+id/sort_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#1E88E5"
+            android:text="Sort Tasks"
+            android:textSize="11sp" />
     </LinearLayout>
 
     <View
@@ -61,9 +69,10 @@
         android:id="@+id/addTask_floatingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true"
+        app:backgroundTint="#37CA84"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />

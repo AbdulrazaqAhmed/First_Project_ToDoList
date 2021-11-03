@@ -15,6 +15,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.todolistproject.R
 import com.example.todolistproject.database.TaskModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TaskDetail_Fragment : Fragment() {
@@ -52,7 +54,7 @@ class TaskDetail_Fragment : Fragment() {
 
 
                     val datePickerDialog = DatePickerDialog(requireContext(), DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                        popDatePicker.setText("" + day + "/" + (month+1)+ "/" + year)
+                        popDatePicker.setText("" + year + "/" + (month+1)+ "/" + day)
                     }, year, month, day)
 
                     datePickerDialog.show()
@@ -70,6 +72,10 @@ class TaskDetail_Fragment : Fragment() {
 
             selectedTask.title = titleedittext.text.toString()
             selectedTask.description = descriptionedittext.text.toString()
+
+            val format = SimpleDateFormat("yyyy/MM/dd")
+            val deadline = format.parse(popDatePicker.text.toString())
+
             selectedTask.deudate = popDatePicker.text.toString()
 
             taskViewModel.updateTask(selectedTask)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todolistproject.R
@@ -37,6 +38,7 @@ class TaskAdapter (val tasks:List<TaskModel>,val viewModel: TaskViewModel):
 
         holder.titletextview.text = task.title
         holder.isDone.isChecked = task.isDone
+        holder.inDecator.text = task.indecater
 
 
 
@@ -60,36 +62,35 @@ class TaskAdapter (val tasks:List<TaskModel>,val viewModel: TaskViewModel):
         val deadline = format.parse(task.deudate)
 
 
+        Log.d("currentDate list", currentDate.toString())
+        Log.d("deadline list", deadline.toString())
 
-        if (currentDate > deadline) {
+        if (currentDate > deadline && !task.isDone) {
             holder.titletextview.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             holder.inDecator.text = "Pass Due Date "
 
 
 
-        }else {
-            holder.titletextview.setPaintFlags(0)
-            holder.inDecator.text = "Task is In Progress "
-
         }
+        var text = task.indecater
+
+        holder.isDone.setOnClickListener (){
 
 
-        holder.isDone.setOnClickListener {
 
-
-
-            if (holder.isDone.isChecked) {
-                holder.titletextview.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)
-                holder.inDecator.text = "Task is Done "
+            if (task.isDone) {
+                text = "Task is Not Done"
+                holder.inDecator.text =  text
 
 
             } else {
-                holder.titletextview.setPaintFlags(0)
-
+                text = "Task is Done"
+                holder.inDecator.text = text
 
             }
 
             task.isDone = holder.isDone.isChecked
+            task.indecater = holder.inDecator.text.toString()
             viewModel.updateTask(task)
         }
 
